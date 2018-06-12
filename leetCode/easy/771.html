@@ -80,7 +80,7 @@
     <link rel="next" href="../../blog/aboutMe.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="../" />
     
 
     </head>
@@ -123,9 +123,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.1.1" data-path="./">
+        <li class="chapter " data-level="1.1.1" data-path="../">
             
-                <a href="./">
+                <a href="../">
             
                     
                     简单
@@ -218,7 +218,72 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h2 id="jewels-and-stones">Jewels and Stones</h2>
+<p>&#x539F;&#x9898;&#xFF1A;</p>
+<p>You&apos;re given strings J representing the types of stones that are jewels, and S representing the stones you have.  Each character in S is a type of stone you have.  You want to know how many of the stones you have are also jewels.</p>
+<p>The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;.</p>
+<p>example 1:</p>
+<pre class="language-"><code>Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;
+Output: 3
+</code></pre><p>example 2:</p>
+<pre class="language-"><code>Input: J = &quot;z&quot;, S = &quot;ZZ&quot;
+Output: 0
+</code></pre><p>Note:</p>
+<pre class="language-"><code>S and J will consist of letters and have length at most 50.
+The characters in J are distinct.
+</code></pre><p>&#x5927;&#x81F4;&#x9898;&#x610F;&#xFF1A;</p>
+<p>&#x6709;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;J&#x548C;S&#xFF0C;J&#x8868;&#x793A;&#x5B9D;&#x77F3;&#x7684;&#x79CD;&#x7C7B;&#xFF0C;S&#x8868;&#x793A;&#x4F60;&#x5DF2;&#x62E5;&#x6709;&#x7684;&#x77F3;&#x5934;&#x3002;&#x4F60;&#x62E5;&#x6709;S&#x6BCF;&#x4E00;&#x4E2A;&#x90FD;&#x662F;&#x77F3;&#x5934;&#xFF0C;&#x73B0;&#x5728;&#x4F60;&#x60F3;&#x77E5;&#x9053;&#xFF0C;S&#x4E2D;&#x5230;&#x5E95;&#x6709;&#x591A;&#x5C11;&#x5B9D;&#x77F3;&#xFF1F;</p>
+<p>&#x8FD9;&#x9053;&#x9898;&#x5728;leetcode&#x5C5E;&#x4E8E;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684;&#x95EE;&#x9898;&#x4E86;&#xFF0C;&#x9AD8;&#x8FBE;&#x767E;&#x5206;&#x4E4B;&#x516B;&#x5341;&#x7684;accepted&#x7387;&#x4E5F;&#x8BC1;&#x5B9E;&#x4E86;&#x8FD9;&#x4E00;&#x70B9;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x6211;&#x60F3;&#x5230;&#x7684;&#x4E0D;&#x540C;&#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre class="language-"><code>/**
+ * @param {string} J
+ * @param {string} S
+ * @return {number}
+ */
+var numJewelsInStones = function(J, S) {
+    let j = J;
+    let s = S;
+    let typeObj = {};
+    let type = 0;
+    j.split(&apos;&apos;).map((item)=&gt;{
+        typeObj[item]=0;
+    })
+    s.split(&apos;&apos;).map((item)=&gt;{
+        if(typeObj[item]!==undefined){
+            typeObj[item]+=1;
+            type+=1;
+        }
+    })
+    return type;
+};
+</code></pre><p>&#x7B80;&#x5355;&#x4E00;&#x70B9;&#x7684;&#xFF1A;</p>
+<pre class="language-"><code>/**
+ * @param {string} J
+ * @param {string} S
+ * @return {number}
+ */
+var numJewelsInStones = function(J, S) {
+    let total = 0;
+    for(let i = 0;i &lt; S.length; i++){
+        if(J.indexOf(S[i]) !== -1){
+            total ++;
+        }
+    }
+    return total;
+};
+</code></pre><p>&#x66F4;&#x7B80;&#x5355;&#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre class="language-"><code>/**
+ * @param {string} J
+ * @param {string} S
+ * @return {number}
+ */
+var numJewelsInStones = function(J, S) {
+    return S.split(&apos;&apos;).filter((item) =&gt; {
+        return J.indexOf(item) &gt;-1;
+   }).length;
+};
+</code></pre><p>&#x8FD9;&#x6837;&#x5C31;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4E86;&#x3002;</p>
+
                                 
                                 </section>
                             
@@ -245,7 +310,7 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 简单">
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 简单">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -261,7 +326,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"771","level":"1.1.1.1","depth":3,"next":{"title":"个人博客","level":"1.2","depth":1,"path":"blog/aboutMe.md","ref":"blog/aboutMe.md","articles":[]},"previous":{"title":"简单","level":"1.1.1","depth":2,"path":"leetCode/easy/README.md","ref":"leetCode/easy/README.md","articles":[{"title":"771","level":"1.1.1.1","depth":3,"path":"leetCode/easy/771.md","ref":"leetCode/easy/771.md","articles":[]}]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["disqus","prism","highlight","splitter","theme-comscore","toggle-chapters","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"disqus":{"useIdentifier":false,"shortName":"gitbookuse"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"leetCode/easy/771.md","mtime":"2018-06-12T05:50:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-12T06:17:58.489Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"771","level":"1.1.1.1","depth":3,"next":{"title":"个人博客","level":"1.2","depth":1,"path":"blog/aboutMe.md","ref":"blog/aboutMe.md","articles":[]},"previous":{"title":"简单","level":"1.1.1","depth":2,"path":"leetCode/README.md","ref":"leetCode/README.md","articles":[{"title":"771","level":"1.1.1.1","depth":3,"path":"leetCode/easy/771.md","ref":"leetCode/easy/771.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["disqus","prism","highlight","splitter","theme-comscore","toggle-chapters","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"disqus":{"useIdentifier":false,"shortName":"gitbookuse"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"leetCode/easy/771.md","mtime":"2018-06-12T09:27:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-12T09:27:47.895Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
